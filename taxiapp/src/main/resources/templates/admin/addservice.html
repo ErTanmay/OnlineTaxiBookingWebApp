@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Form</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f4f8;
+          padding: 40px;
+        }
+
+        .form-container {
+          background-color: #fff;
+          max-width: 500px;
+          margin: auto;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+          text-align: center;
+          margin-bottom: 20px;
+          color: #333;
+        }
+
+        label {
+          display: block;
+          margin-top: 15px;
+          font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+          width: 100%;
+          padding: 10px;
+          margin-top: 6px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          box-sizing: border-box;
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+
+        button {
+          margin-top: 20px;
+          width: 100%;
+          padding: 12px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        button:hover {
+          background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Service Details Form</h2>
+    <h3 style=" color : green " th:text="${message}"></h3>
+
+    <form action="addservice" method="post" enctype="multipart/form-data">
+        <label for="image">Service Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter service title" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter service description" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+ <br>
+ <br>
+<a href="dashboard">DASHBOARD</a><br>
+<!--<a href="resources/templates/Home.html">HOME</a>-->
+<br>
+
+</body>
+</html>

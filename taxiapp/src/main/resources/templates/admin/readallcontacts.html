@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL CONTACTS</title>
+</head>
+<body>
+<h1>READ ALL CONTACTS</h1>
+<br>
+<br>
+<h2 style="color : green" th:text="${message}"></h2>
+<br>
+<br>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>MESSAGE</th>
+            <th>PHONE</th>
+            <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" contact : ${allcontacts}">
+            <td th:text="${contact.id}"></td>
+            <td th:text="${contact.name}"></td>
+            <td th:text="${contact.email}"></td>
+            <td th:text="${contact.message}"></td>
+            <td th:text="${contact.phone}"></td>
+            <td>
+                <a th:href="@{/admin/deletecontact/{id} (id=${contact.id}) }">DELETE</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+<br>
+<br>
+<a href="dashboard">DASHBOARD</a><br>
+</body>
+</html>

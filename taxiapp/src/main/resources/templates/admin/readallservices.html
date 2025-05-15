@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>SERVICES LIST</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f4f8;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    table {
+      width: 90%;
+      margin: auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    thead {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    td img {
+      width: 80px;
+      height: auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Service List</h2>
+
+<h3 style=" color : green" th:text="${message}"></h3>
+
+<table>
+  <thead>
+  <tr>
+    <th>Service Image</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Sample static rows — replace with values from DB using your backend -->
+        <tr th:each=" service : ${allservices} ">
+        <td th:text="${service.image}" ></td>
+        <td th:text="${service.title}" ></td>
+        <td th:text="${service.description}" ></td>
+          <td> <a th:href="@{/admin/deleteservice/{id} (id=${service.id}) }">DELETE</a></td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<a href="dashboard">DASHBOARD</a><br>
+</body>
+</html>
